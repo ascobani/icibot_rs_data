@@ -35,11 +35,13 @@ class RsDataHomePageDesignerModel {
     menuSectionId = json?['menu_section_id']?.toInt();
     menuItemId = json?['menu_item_id']?.toInt();
     imageUrl = json?['image_url']?.toString();
-    title = jsonDecode(json?['title'])
-        .entries
-        .map<RSDataTitleLanguageModel>(
-            (e) => RSDataTitleLanguageModel.fromJson(e))
-        .toList();
+    if (json?['title'] != '') {
+      title = jsonDecode(json?['title'])
+          .entries
+          .map<RSDataTitleLanguageModel>(
+              (e) => RSDataTitleLanguageModel.fromJson(e))
+          .toList();
+    }
     url = json?['url']?.toString();
     createdAt = json?['created_at']?.toString();
     updatedAt = json?['updated_at']?.toString();

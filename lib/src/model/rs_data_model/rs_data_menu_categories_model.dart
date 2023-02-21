@@ -25,18 +25,20 @@ class RSDataMenuCategoriesModel {
     this.surveyHeader,
   });
 
-  RSDataMenuCategoriesModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    menuSectionId = json['menu_section_id'];
-    title = jsonDecode(json['title'])
-        .entries
-        .map<RSDataTitleLanguageModel>(
-            (e) => RSDataTitleLanguageModel.fromJson(e))
-        .toList();
-    hotelId = json['hotel_id'];
-    menuItemId = json['menu_item_id'];
-    priority = json['priority'];
-    default0SurveyHeaderId = json['default:0;survey_header_id'];
-    surveyHeader = RSDataSurveyHeaderModel.fromJson(json['survey_header']);
+  RSDataMenuCategoriesModel.fromJson(Map<String, dynamic>? json) {
+    id = json?['id'];
+    menuSectionId = json?['menu_section_id'];
+    if (json?['title'] != '') {
+      title = jsonDecode(json?['title'])
+          .entries
+          .map<RSDataTitleLanguageModel>(
+              (e) => RSDataTitleLanguageModel.fromJson(e))
+          .toList();
+    }
+    hotelId = json?['hotel_id'];
+    menuItemId = json?['menu_item_id'];
+    priority = json?['priority'];
+    default0SurveyHeaderId = json?['default:0;survey_header_id'];
+    surveyHeader = RSDataSurveyHeaderModel.fromJson(json?['survey_header']);
   }
 }

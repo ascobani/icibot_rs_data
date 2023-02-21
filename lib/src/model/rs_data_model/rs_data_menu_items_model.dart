@@ -3,11 +3,11 @@ part of 'rs_data_model.dart';
 class RSDataMenuItemsModel {
   int? id;
   int? menuSectionId;
-  String? menuSectionName;
+  List<RSDataTitleLanguageModel>? menuSectionName;
   int? menuCategoryId;
-  String? menuCategoryName;
+  List<RSDataTitleLanguageModel>? menuCategoryName;
   int? hotelId;
-  String? name;
+  List<RSDataTitleLanguageModel>? name;
   String? description;
   String? imageUrl;
   String? email;
@@ -60,8 +60,8 @@ class RSDataMenuItemsModel {
   String? reservationRestrictionType;
   int? reservationRestrictionValue;
   bool? showDateRange;
-  String? startDate;
-  String? endDate;
+  DateTime? startDate;
+  DateTime? endDate;
   bool? selectCapacity;
   bool? noAccommodationRequired;
   bool? order;
@@ -203,11 +203,36 @@ class RSDataMenuItemsModel {
     id = json['id'];
     menuSectionId = json['menu_section_id'];
     menuSectionName = json['menu_section_name'];
+    if (json['menu_section_name'] != '') {
+      menuSectionName = jsonDecode(json['menu_section_name'])
+          .entries
+          .map<RSDataTitleLanguageModel>(
+              (e) => RSDataTitleLanguageModel.fromJson(e))
+          .toList();
+    }
     menuCategoryId = json['menu_category_id'];
-    menuCategoryName = json['menu_category_name'];
+    if (json['menu_category_name'] != '') {
+      menuCategoryName = jsonDecode(json['menu_category_name'])
+          .entries
+          .map<RSDataTitleLanguageModel>(
+              (e) => RSDataTitleLanguageModel.fromJson(e))
+          .toList();
+    }
     hotelId = json['hotel_id'];
-    name = json['name'];
-    description = json['description'];
+    if (json['name'] != '') {
+      name = jsonDecode(json['name'])
+          .entries
+          .map<RSDataTitleLanguageModel>(
+              (e) => RSDataTitleLanguageModel.fromJson(e))
+          .toList();
+    }
+    if (json['description'] != '') {
+      description = jsonDecode(json['description'])
+          .entries
+          .map<RSDataTitleLanguageModel>(
+              (e) => RSDataTitleLanguageModel.fromJson(e))
+          .toList();
+    }
     imageUrl = json['image_url'];
     email = json['email'];
     phone = json['phone'];
@@ -259,8 +284,8 @@ class RSDataMenuItemsModel {
     reservationRestrictionType = json['reservation_restriction_type'];
     reservationRestrictionValue = json['reservation_restriction_value'];
     showDateRange = json['show_date_range'];
-    startDate = json['start_date'];
-    endDate = json['end_date'];
+    startDate = DateTime.parse(json['start_date']);
+    endDate = DateTime.parse(json['end_date']);
     selectCapacity = json['select_capacity'];
     noAccommodationRequired = json['no_accommodation_required'];
     order = json['order'];
