@@ -1,6 +1,6 @@
 part of 'rs_data_model.dart';
 
-class RsDataBarsModel {
+class RsDataGolfClubModel {
   int? id;
   int? hotelId;
   int? menuAreaId;
@@ -14,7 +14,7 @@ class RsDataBarsModel {
   bool? request;
   RSDataSurveyModel? survey;
 
-  RsDataBarsModel({
+  RsDataGolfClubModel({
     this.id,
     this.hotelId,
     this.menuAreaId,
@@ -29,7 +29,7 @@ class RsDataBarsModel {
     this.survey,
   });
 
-  RsDataBarsModel.fromJson(Map<String, dynamic> json) {
+  RsDataGolfClubModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     hotelId = json['hotelId'];
     menuAreaId = json['menuAreaId'];

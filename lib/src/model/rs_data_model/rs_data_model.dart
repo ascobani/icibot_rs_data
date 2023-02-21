@@ -1,12 +1,26 @@
+import 'dart:convert';
+
 import 'package:hive/hive.dart';
 
 part 'rs_data_bars_model.dart';
 
-part 're_data_menu_items_model.dart';
+part 'rs_data_menu_items_model.dart';
 
 part 'rs_data_home_page_designer_model.dart';
 
 part 'rs_data_survey_header_model.dart';
+
+part 'rs_data_menu_categories_model.dart';
+
+part 'rs_data_survey_model.dart';
+
+part 'rs_data_cafes_model.dart';
+
+part 'rs_data_golf_club_model.dart';
+
+part 'rs_data_kids_club_model.dart';
+
+part 'rs_data_title_language_model.dart';
 
 @HiveType(typeId: 0)
 class RSDataModel {
@@ -325,14 +339,24 @@ class RSDataModel {
   int? checkOutSurveyId;
   @HiveField(156)
   bool? autoCreateProfile;
+  @HiveField(157)
+  RsDataBarsModel? bars;
+  @HiveField(158)
+  RsDataCafesModel? cafes;
+  @HiveField(159)
+  RsDataGolfClubModel? golfClub;
+  @HiveField(160)
+  RsDataKidsClubModel? kidsClub;
 
   RSDataModel({
     this.mobileVersion,
+    this.bars,
     this.id,
     this.description,
     this.name,
     this.languages,
     this.imageUrl,
+    this.golfClub,
     this.phone,
     this.entryDate,
     this.releaseDate,
@@ -343,6 +367,7 @@ class RSDataModel {
     this.callForRequests,
     this.roomNumberValidationCode,
     this.claimTrackingManager,
+    this.cafes,
     this.hotelType,
     this.mobilePayment,
     this.title,
@@ -649,5 +674,9 @@ class RSDataModel {
     checkInSurveyId = json['check_in_survey_id'];
     checkOutSurveyId = json['check_out_survey_id'];
     autoCreateProfile = json['auto_create_profile'];
+    bars = RsDataBarsModel.fromJson(json['bars']);
+    cafes = RsDataCafesModel.fromJson(json['cafes']);
+    golfClub = RsDataGolfClubModel.fromJson(json['golf_club']);
+    kidsClub = RsDataKidsClubModel.fromJson(json['kids_club']);
   }
 }
