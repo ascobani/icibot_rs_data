@@ -27,17 +27,17 @@ class RsDataHomePageDesignerModel {
     this.updatedAt,
   });
 
-  RsDataHomePageDesignerModel.fromJson(Map<String, dynamic> json) {
-    id = json['id']?.toInt();
-    hotelId = json['hotel_id']?.toInt();
-    type = json['type']?.toString();
-    priority = json['priority']?.toInt();
-    menuSectionId = json['menu_section_id']?.toInt();
-    menuItemId = json['menu_item_id']?.toInt();
-    imageUrl = json['image_url']?.toString();
-    title = json['title']?.toString();
-    url = json['url']?.toString();
-    createdAt = json['created_at']?.toString();
-    updatedAt = json['updated_at']?.toString();
+  RsDataHomePageDesignerModel.fromJson(Map<String, dynamic>? json) {
+    id = json?['id']?.toInt();
+    hotelId = json?['hotel_id']?.toInt();
+    type = json?['type']?.toString();
+    priority = json?['priority']?.toInt();
+    menuSectionId = json?['menu_section_id']?.toInt();
+    menuItemId = json?['menu_item_id']?.toInt();
+    imageUrl = json?['image_url']?.toString();
+    title = json?['title']?.toString();
+    url = json?['url']?.toString();
+    createdAt = json?['created_at']?.toString();
+    updatedAt = json?['updated_at']?.toString();
   }
 }

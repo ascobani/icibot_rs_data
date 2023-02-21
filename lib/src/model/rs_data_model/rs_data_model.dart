@@ -71,11 +71,11 @@ class RSDataModel {
   @HiveField(29)
   String? groupHotels;
   @HiveField(30)
-  Uri? googleAnalyticsLink;
+  String? googleAnalyticsLink;
   @HiveField(31)
-  Uri? yandexMetricaLink;
+  String? yandexMetricaLink;
   @HiveField(32)
-  Uri? bingLink;
+  String? bingLink;
   @HiveField(33)
   String? surveyUrl;
   @HiveField(34)
@@ -97,17 +97,17 @@ class RSDataModel {
   @HiveField(42)
   String? subColor;
   @HiveField(43)
-  Uri? kvkkLink;
+  String? kvkkLink;
   @HiveField(44)
-  Uri? privacyPolicyLink;
+  String? privacyPolicyLink;
   @HiveField(45)
   String? accommodationContract;
   @HiveField(46)
-  Uri? tripAdvisorLink;
+  String? tripAdvisorLink;
   @HiveField(47)
   bool? mailVerificationForGuests;
   @HiveField(48)
-  Uri? apiAddress;
+  String? apiAddress;
   @HiveField(49)
   String? spDoctor;
   @HiveField(50)
@@ -135,13 +135,13 @@ class RSDataModel {
   @HiveField(61)
   String? smVkontakteUrl;
   @HiveField(62)
-  DateTime? createdAt;
+  String? createdAt;
   @HiveField(63)
-  DateTime? updatedAt;
+  String? updatedAt;
   @HiveField(64)
   int? mobileVersion;
   @HiveField(65)
-  DateTime? mobileVersionPublishDate;
+  String? mobileVersionPublishDate;
   @HiveField(66)
   String? mobilePublishBy;
   @HiveField(67)
@@ -208,21 +208,21 @@ class RSDataModel {
   @HiveField(97)
   String? oneSignalUserKey;
   @HiveField(98)
-  Uri? appStoreLink;
+  String? appStoreLink;
   @HiveField(99)
-  Uri? googlePlayLink;
+  String? googlePlayLink;
   @HiveField(100)
-  Uri? firebaseLink;
+  String? firebaseLink;
   @HiveField(101)
   bool? openForYear;
   @HiveField(102)
-  DateTime? openDate;
+  String? openDate;
   @HiveField(103)
-  DateTime? closeDate;
+  String? closeDate;
   @HiveField(104)
-  DateTime? entryDate;
+  String? entryDate;
   @HiveField(105)
-  DateTime? releaseDate;
+  String? releaseDate;
   @HiveField(106)
   String? babyAgeRange;
   @HiveField(107)
@@ -292,7 +292,7 @@ class RSDataModel {
   @HiveField(139)
   String? hotelToken;
   @HiveField(140)
-  DateTime? hotelTokenExpiredTime;
+  String? hotelTokenExpiredTime;
   @HiveField(141)
   int? tokenExpireSeconds;
   @HiveField(142)
@@ -318,7 +318,7 @@ class RSDataModel {
   @HiveField(152)
   bool? isGiftCard;
   @HiveField(153)
-  Uri? surveyAddress;
+  String? surveyAddress;
   @HiveField(154)
   int? checkInSurveyId;
   @HiveField(155)
@@ -487,84 +487,165 @@ class RSDataModel {
   });
 
   RSDataModel.fromJson(Map<String, dynamic> json) {
-    placeId = json['placeId'];
-    hotelInformationAr = json['hotelInformationAr'];
-    hotelInformationEn = json['hotelInformationEn'];
-    hotelInformationFr = json['hotelInformationFr'];
-    hotelInformationDe = json['hotelInformationDe'];
-    hotelInformationEs = json['hotelInformationEs'];
-    hotelInformationRu = json['hotelInformationRu'];
-    hotelInformationIr = json['hotelInformationIr'];
-    hotelInformationTr = json['hotelInformationTr'];
-    hotelChain = json['hotelChain'];
-    hotelType = json['hotelType'];
-    hotelLanguage = json['hotelLanguage'];
-    hotelToken = json['hotelToken'];
-    hotelTokenExpiredTime = DateTime.parse(json['hotelTokenExpiredTime']);
-    tokenExpireSeconds = json['tokenExpireSeconds'];
-    loyaltyManagement = json['loyaltyManagement'];
-    staffTracking = json['staffTracking'];
-    qrReader = json['qrReader'];
-    isTaskSolutionNoteMandatory = json['isTaskSolutionNoteMandatory'];
-    isTaskDescriptionMandatory = json['isTaskDescriptionMandatory'];
-    isGiftCard = json['isGiftCard'];
-    surveyAddress = Uri.parse(json['surveyAddress']);
-    checkInSurveyId = json['checkInSurveyId'];
-    placeId = json['placeId'];
-    checkOutSurveyId = json['checkOutSurveyId'];
-    autoCreateProfile = json['autoCreateProfile'];
-    password = json['password'];
-    createdAt = DateTime.parse(json['createdAt']);
-    updatedAt = DateTime.parse(json['updatedAt']);
-    yandexMetricaLink = Uri.parse(json['yandexMetricaLink']);
-    bingLink = Uri.parse(json['bingLink']);
-    accommodationContract = json['accommodationContract'];
-    tripAdvisorLink = Uri.parse(json['trip_advisorLink']);
-    activated = json['activated'];
-    address = json['address'];
-    apiAddress = Uri.parse(json['api_address']);
-    appStoreLink = Uri.parse(json['app_store_link']);
-    autoSendWelcomeMail = json['auto_send_welcome_mail'];
-    callCenter = json['call_center'];
-    checkInPostMessage = json['check_in_post_message'];
-    city = json['city'];
+    id = json['id'];
     clientId = json['client_id'];
-    closeDate = DateTime.parse(json['close_date']);
-    contactEmail = json['contact_email'];
+    facebookId = json['facebook_id'];
+    name = json['name'];
     contactName = json['contact_name'];
     contactPhone = json['contact_phone'];
+    contactEmail = json['contact_email'];
+    callCenter = json['call_center'];
+    houseKeepingPhone = json['house_keeping_phone'];
+    masterColor = json['master_color'];
+    activated = json['activated'];
+    subscriptionStartDate = json['subscription_start_date'];
+    subscriptionEndDate = json['subscription_end_date'];
+    address = json['address'];
+    postCode = json['post_code'];
+    city = json['city'];
     country = json['country'];
     currencyCode = json['currency_code'];
     deliveryDistanceType = json['delivery_distance_type'];
-    deliveryTimeOfDay = json['delivery_time_of_day'];
+    languages = json['languages'];
+    placeId = json['place_id'];
+    imageUrl = json['image_url'];
+    photos = json['photos'];
+    rating = json['rating'];
+    webSiteUrl = json['web_site_url'];
+    latLng = json['lat_lng'];
+    onlineReservationUrl = json['online_reservation_url'];
     directReservation = json['direct_reservation'];
-    email = json['email'];
-    facebookId = json['facebook_id'];
-    faq = json['faq'];
-    featured = json['featured'];
-    firebaseLink = Uri.parse(json['firebase_link']);
-    firstLevelAlertList = json['first_level_alert_list'];
-    fourthLevelAlertList = json['fourth_level_alert_list'];
-    googleAnalyticsLink = Uri.parse(json['google_analytics_link']);
-    googlePlayLink = Uri.parse(json['google_play_link']);
+    reservationMailAddress = json['reservation_mail_address'];
     groupHotels = json['group_hotels'];
-    homePageDesigner = json['home_page_designer'];
-    hotelInformationRu = json['hotel_Iinformation_ru'];
+    googleAnalyticsLink = json['google_analytics_link'];
+    yandexMetricaLink = json['yandex_metrica_link'];
+    bingLink = json['bing_link'];
+    surveyUrl = json['survey_url'];
+    hotelInformationTr = json['hotel_information_tr'];
     hotelInformationEn = json['hotel_information_en'];
-    hotelInformationFr = json['hotel_information_fr'];
+    hotelInformationRu = json['hotel_information_ru'];
     hotelInformationDe = json['hotel_information_de'];
-    hotelInformationEs = json['hotel_information_es'];
+    hotelInformationFr = json['hotel_information_fr'];
     hotelInformationAr = json['hotel_information_ar'];
     hotelInformationIr = json['hotel_information_ir'];
-    hotelInformationTr = json['hotel_information_tr'];
-    houseKeepingPhone = json['house_keeping_phone'];
-    kvkkLink = Uri.parse(json['kvkk_link']);
-    latLng = json['lat_lng'];
+    hotelInformationEs = json['hotel_information_es'];
+    subColor = json['sub_color'];
+    kvkkLink = json['kvkk_link'];
+    privacyPolicyLink = json['privacy_policy_link'];
+    accommodationContract = json['accommodation_contract'];
+    tripAdvisorLink = json['trip_advisor_link'];
     mailVerificationForGuests = json['mail_verification_for_guests'];
-    masterColor = json['master_color'];
+    apiAddress = json['api_address'];
+    spDoctor = json['sp_doctor'];
+    spSpa = json['sp_spa'];
+    spReception = json['sp_reception'];
+    spRoomService = json['sp_room_service'];
+    spCustomerRelation = json['sp_customer_relation'];
+    spTechnicalService = json['sp_technical_service'];
+    spManagement = json['sp_management'];
+    planImageUrl = json['plan_image_url'];
+    smYoutubeUrl = json['sm_youtube_url'];
+    smInstagramUrl = json['sm_instagram_url'];
+    smFacebookUrl = json['sm_facebook_url'];
+    smTwitterUrl = json['sm_twitter_url'];
+    smVkontakteUrl = json['sm_vkontakte_url'];
+    createdAt = json['created_at'];
+    updatedAt = json['updated_at'];
+    mobileVersion = json['mobile_version'];
+    mobileVersionPublishDate = json['mobile_version_publish_date'];
     mobilePublishBy = json['mobile_publish_by'];
-    mobileVersionPublishDate = DateTime.parse(json['mobileVersionPublishDate']);
-
-
+    hotelChain = json['hotel_chain'];
+    onlineCheckIn = json['online_check_in'];
+    onlineCheckInImage = json['online_check_in_image'];
+    onlineCheckInSignature = json['online_check_in_signature'];
+    checkInPostMessage = json['check_in_post_message'];
+    welcomeMessage = json['welcome_message'];
+    surveyHeaderId = json['survey_header_id'];
+    surveyHeader = RSDataSurveyHeaderModel.fromJson(json['survey_header']);
+    surveyTitle = json['survey_title'];
+    surveyDescription = json['survey_description'];
+    deliveryTimeOfDay = json['delivery_time_of_day'];
+    notificationPoint = json['notification_point'];
+    surveyPoint = json['survey_point'];
+    subDomainName = json['sub_domain_name'];
+    productType = json['product_type'];
+    autoSendWelcomeMail = json['auto_send_welcome_mail'];
+    homePageDesigner = json['home_page_designer']
+        .map((json) => RsDataHomePageDesignerModel.fromJson(json))
+        .toList();
+    firstLevelAlertList = json['first_level_alert_list'];
+    secondLevelAlertList = json['second_level_alert_list'];
+    thirdLevelAlertList = json['third_level_alert_list'];
+    fourthLevelAlertList = json['fourth_level_alert_list'];
+    negativeSurveyAlertList = json['negative_survey_alert_list'];
+    titleAndDescriptions = json['title_and_descriptions'];
+    faq = json['faq_title'];
+    featured = json['featured'];
+    email = json['email'];
+    password = json['password'];
+    phone = json['phone'];
+    oneSignalAppId = json['one_signal_app_id'];
+    oneSignalAppKey = json['one_signal_app_key'];
+    oneSignalUserKey = json['one_signal_user_key'];
+    appStoreLink = json['app_store_link'];
+    googlePlayLink = json['google_play_link'];
+    firebaseLink = json['firebase_link'];
+    openForYear = json['open_for_year'];
+    openDate = json['open_date'];
+    closeDate = json['close_date'];
+    entryDate = json['entry_date'];
+    releaseDate = json['release_date'];
+    babyAgeRange = json['baby_age_range'];
+    childAgeRange = json['child_age_range'];
+    oldAgeRange = json['old_age_range'];
+    closeRequest = json['close_request'];
+    callForRequests = json['call_for_requests'];
+    roomNumberValidationCode = json['room_number_validation_code'];
+    claimTrackingManager = json['claim_tracking_manager'];
+    hotelType = json['hotel_type'];
+    mobilePayment = json['mobile_payment'];
+    title = json['title'];
+    description = json['description'];
+    wifiName = json['wifi_name'];
+    wifiPassword = json['wifi_password'];
+    whatsappNo = json['whatsapp_no'];
+    viberNo = json['viber_no'];
+    telegramNo = json['telegram_no'];
+    messengerAddress = json['messenger_address'];
+    googleMapAddress = json['google_map_address'];
+    showWelcome = json['show_welcome'];
+    showChat = json['show_chat'];
+    inHouseListLoginType = json['in_house_list_login_type'];
+    inHouseListMatchingCondition = json['in_house_list_matching_condition'];
+    pmsApplication = json['pms_application'];
+    createPowerBIdata = json['create_power_b_idata'];
+    reportDbScheme = json['report_db_scheme'];
+    manuelGuestVisitConfirmation = json['manuel_guest_visit_confirmation'];
+    rewardCalculationType = json['reward_calculation_type'];
+    rewardMinPoint = json['reward_min_point'];
+    rewardValue = json['reward_value'];
+    timeZone = json['time_zone'];
+    virtualTourUrl = json['virtual_tour_url'];
+    upsellItemId = json['upsell_item_id'];
+    hotelLanguage = json['hotel_language'];
+    hotelToken = json['hotel_token'];
+    hotelTokenExpiredTime = json['hotel_token_expired_time'];
+    tokenExpireSeconds = json['token_expire_seconds'];
+    manuelRequestOwnerType = json['manuel_request_owner_type'];
+    onetimeInformation = json['onetime_information'];
+    isAccountVerifyNecessaryForRequest =
+        json['is_account_verify_necessary_for_request'];
+    isClosedStaffChat = json['is_closed_staff_chat'];
+    operationSystem = json['operation_system'];
+    loyaltyManagement = json['loyalty_management'];
+    staffTracking = json['staff_tracking'];
+    qrReader = json['qr_reader'];
+    isTaskSolutionNoteMandatory = json['is_task_solution_note_mandatory'];
+    isTaskDescriptionMandatory = json['is_task_description_mandatory'];
+    isGiftCard = json['is_gift_card'];
+    surveyAddress = json['survey_address'];
+    checkInSurveyId = json['check_in_survey_id'];
+    checkOutSurveyId = json['check_out_survey_id'];
+    autoCreateProfile = json['auto_create_profile'];
   }
 }
