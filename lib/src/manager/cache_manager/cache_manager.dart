@@ -1,11 +1,14 @@
 import 'package:hive/hive.dart';
+import 'package:icibot_rs_data/src/manager/cache_manager/person.dart';
 
 class CacheManager {
   Future<void> getData() async {
-    Hive.box("box");
+    // Hive.init(path)
+
     Box box = Hive.openBox("box") as Box;
-    await box.put("isim", "furkan");
-    String name = await box.get("isim");
-    print(name);
+    Hive.registerAdapter(PersonAdapter());
+    await box.put("person", Person(name: "Furkan", age: 23));
+    Person person = await box.get("person");
+    print(person.name);
   }
 }
