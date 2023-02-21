@@ -1,3 +1,12 @@
+part 'rs_data_bars_model.dart';
+
+part 're_data_menu_items_model.dart';
+
+part 'rs_data_home_page_designer_model.dart';
+
+part 'rs_data_survey_header_model.dart';
+
+// @HiveType(typeId: 0)
 class RSDataModel {
   int? id;
   int? clientId;
@@ -73,7 +82,7 @@ class RSDataModel {
   String? checkInPostMessage;
   String? welcomeMessage;
   int? surveyHeaderId;
-  SurveyHeader? surveyHeader;
+  RSDataSurveyHeaderModel? surveyHeader;
   String? surveyTitle;
   String? surveyDescription;
   String? deliveryTimeOfDay;
@@ -82,124 +91,239 @@ class RSDataModel {
   String? subDomainName;
   String? productType;
   bool? autoSendWelcomeMail;
-  List<HomePageDesigner>? homePageDesigner;
+  List<RsDataHomePageDesignerModel>? homePageDesigner;
   String? firstLevelAlertList;
   String? secondLevelAlertList;
   String? thirdLevelAlertList;
   String? fourthLevelAlertList;
   String? negativeSurveyAlertList;
-}
-class Bars {
-
-}
-
-class HomePageDesigner {
-  int? id;
-  int? hotelId;
-  String? type;
-  int? priority;
-  int? menuSectionId;
-  int? menuItemId;
-  String? imageUrl;
+  List<String?>?
+      titleAndDescriptions; //TODO: change to List<TitleAndDescriptionModel>?
+  List<String?>? faq; //TODO: change to List<FaqModel>?
+  List<String?>? featured; //TODO: change to List<FeaturedModel>?
+  String? email;
+  String? password;
+  String? phone;
+  String? oneSignalAppId;
+  String? oneSignalAppKey;
+  String? oneSignalUserKey;
+  String? appStoreLink;
+  String? googlePlayLink;
+  String? firebaseLink;
+  bool? openForYear;
+  String? openDate;
+  String? closeDate;
+  String? entryDate;
+  String? releaseDate;
+  String? babyAgeRange;
+  String? childAgeRange;
+  String? oldAgeRange;
+  bool? closeRequest;
+  bool? callForRequests;
+  String? roomNumberValidationCode;
+  bool? claimTrackingManager;
+  String? hotelType;
+  bool? mobilePayment;
   String? title;
-  String? url;
-  String? createdAt;
-  String? updatedAt;
-
-  HomePageDesigner({
-    this.id,
-    this.hotelId,
-    this.type,
-    this.priority,
-    this.menuSectionId,
-    this.menuItemId,
-    this.imageUrl,
-    this.title,
-    this.url,
-    this.createdAt,
-    this.updatedAt,
-  });
-
-  HomePageDesigner.fromJson(Map<String, dynamic> json) {
-    id = json['id']?.toInt();
-    hotelId = json['hotel_id']?.toInt();
-    type = json['type']?.toString();
-    priority = json['priority']?.toInt();
-    menuSectionId = json['menu_section_id']?.toInt();
-    menuItemId = json['menu_item_id']?.toInt();
-    imageUrl = json['image_url']?.toString();
-    title = json['title']?.toString();
-    url = json['url']?.toString();
-    createdAt = json['created_at']?.toString();
-    updatedAt = json['updated_at']?.toString();
-  }
-
-}
-
-class SurveyHeader {
-  int? id;
-  int? hotelId;
-  String? hotelName;
-  String? questionGroups;
-  String? name;
   String? description;
-  String? status;
-  String? notifyType;
-  String? sendingResultType;
-  String? emails;
-  String? positiveRedirectUrls;
-  String? thanksMessageForPositiveReviews;
-  String? thanksMessageForNegativeReviews;
-  bool? askNoteAfterSurvey;
-  String? createdAt;
-  String? updatedAt;
-  String? surveyLines;
-  int? departmentId;
-  String? groups;
+  String? wifiName;
+  String? wifiPassword;
+  String? whatsappNo;
+  String? viberNo;
+  String? telegramNo;
+  String? messengerAddress;
+  String? googleMapAddress;
+  bool? showWelcome;
+  bool? showChat;
+  String? inHouseListLoginType;
+  String? inHouseListMatchingCondition;
+  String? pmsApplication;
+  bool? createPowerBIdata;
+  String? reportDbScheme;
+  bool? manuelGuestVisitConfirmation;
+  String? rewardCalculationType;
+  int? rewardMinPoint;
+  int? rewardValue;
+  String? timeZone;
+  String? virtualTourUrl;
+  int? upsellItemId;
+  String? hotelLanguage;
+  String? hotelToken;
+  String? hotelTokenExpiredTime;
+  int? tokenExpireSeconds;
+  String? manuelRequestOwnerType;
+  String? onetimeInformation;
+  bool? isAccountVerifyNecessaryForRequest;
+  bool? isClosedStaffChat;
+  bool? operationSystem;
+  bool? loyaltyManagement;
+  bool? staffTracking;
+  bool? qrReader;
+  bool? isTaskSolutionNoteMandatory;
+  bool? isTaskDescriptionMandatory;
+  bool? isGiftCard;
+  String? surveyAddress;
+  int? checkInSurveyId;
+  int? checkOutSurveyId;
+  bool? autoCreateProfile;
 
-  SurveyHeader({
+  RSDataModel({
+    this.mobileVersion,
     this.id,
-    this.hotelId,
-    this.hotelName,
-    this.questionGroups,
-    this.name,
     this.description,
-    this.status,
-    this.notifyType,
-    this.sendingResultType,
-    this.emails,
-    this.positiveRedirectUrls,
-    this.thanksMessageForPositiveReviews,
-    this.thanksMessageForNegativeReviews,
-    this.askNoteAfterSurvey,
+    this.name,
+    this.languages,
+    this.imageUrl,
+    this.phone,
+    this.entryDate,
+    this.releaseDate,
+    this.babyAgeRange,
+    this.childAgeRange,
+    this.oldAgeRange,
+    this.closeRequest,
+    this.callForRequests,
+    this.roomNumberValidationCode,
+    this.claimTrackingManager,
+    this.hotelType,
+    this.mobilePayment,
+    this.title,
+    this.wifiName,
+    this.wifiPassword,
+    this.whatsappNo,
+    this.viberNo,
+    this.telegramNo,
+    this.messengerAddress,
+    this.googleMapAddress,
+    this.showWelcome,
+    this.showChat,
+    this.inHouseListLoginType,
+    this.inHouseListMatchingCondition,
+    this.pmsApplication,
+    this.createPowerBIdata,
+    this.reportDbScheme,
+    this.manuelGuestVisitConfirmation,
+    this.rewardCalculationType,
+    this.rewardMinPoint,
+    this.rewardValue,
+    this.timeZone,
+    this.virtualTourUrl,
+    this.upsellItemId,
+    this.hotelLanguage,
+    this.hotelToken,
+    this.hotelTokenExpiredTime,
+    this.tokenExpireSeconds,
+    this.manuelRequestOwnerType,
+    this.onetimeInformation,
+    this.isAccountVerifyNecessaryForRequest,
+    this.isClosedStaffChat,
+    this.operationSystem,
+    this.loyaltyManagement,
+    this.staffTracking,
+    this.qrReader,
+    this.isTaskSolutionNoteMandatory,
+    this.isTaskDescriptionMandatory,
+    this.isGiftCard,
+    this.surveyAddress,
+    this.checkInSurveyId,
+    this.checkOutSurveyId,
+    this.autoCreateProfile,
+    this.password,
     this.createdAt,
     this.updatedAt,
-    this.surveyLines,
-    this.departmentId,
-    this.groups,
+    this.yandexMetricaLink,
+    this.bingLink,
+    this.accommodationContract,
+    this.tripAdvisorLink,
+    this.activated,
+    this.hotelInformationRu,
+    this.hotelInformationEn,
+    this.hotelInformationFr,
+    this.hotelInformationDe,
+    this.hotelInformationEs,
+    this.address,
+    this.apiAddress,
+    this.appStoreLink,
+    this.autoSendWelcomeMail,
+    this.callCenter,
+    this.checkInPostMessage,
+    this.city,
+    this.clientId,
+    this.closeDate,
+    this.contactEmail,
+    this.contactName,
+    this.contactPhone,
+    this.country,
+    this.currencyCode,
+    this.deliveryDistanceType,
+    this.deliveryTimeOfDay,
+    this.directReservation,
+    this.email,
+    this.facebookId,
+    this.faq,
+    this.featured,
+    this.firebaseLink,
+    this.firstLevelAlertList,
+    this.fourthLevelAlertList,
+    this.googleAnalyticsLink,
+    this.googlePlayLink,
+    this.groupHotels,
+    this.homePageDesigner,
+    this.hotelChain,
+    this.hotelInformationAr,
+    this.hotelInformationIr,
+    this.hotelInformationTr,
+    this.houseKeepingPhone,
+    this.kvkkLink,
+    this.latLng,
+    this.mailVerificationForGuests,
+    this.masterColor,
+    this.mobilePublishBy,
+    this.mobileVersionPublishDate,
+    this.negativeSurveyAlertList,
+    this.notificationPoint,
+    this.oneSignalAppId,
+    this.oneSignalAppKey,
+    this.oneSignalUserKey,
+    this.openDate,
+    this.openForYear,
+    this.onlineCheckIn,
+    this.onlineCheckInImage,
+    this.onlineCheckInSignature,
+    this.onlineReservationUrl,
+    this.photos,
+    this.placeId,
+    this.planImageUrl,
+    this.postCode,
+    this.privacyPolicyLink,
+    this.productType,
+    this.rating,
+    this.reservationMailAddress,
+    this.secondLevelAlertList,
+    this.smFacebookUrl,
+    this.smInstagramUrl,
+    this.smTwitterUrl,
+    this.smYoutubeUrl,
+    this.smVkontakteUrl,
+    this.spCustomerRelation,
+    this.spDoctor,
+    this.spManagement,
+    this.spReception,
+    this.spRoomService,
+    this.spSpa,
+    this.spTechnicalService,
+    this.subColor,
+    this.subDomainName,
+    this.subscriptionEndDate,
+    this.subscriptionStartDate,
+    this.surveyDescription,
+    this.surveyHeader,
+    this.surveyHeaderId,
+    this.surveyPoint,
+    this.surveyTitle,
+    this.surveyUrl,
+    this.thirdLevelAlertList,
+    this.titleAndDescriptions,
+    this.webSiteUrl,
+    this.welcomeMessage,
   });
-
-  SurveyHeader.fromJson(Map<String, dynamic> json) {
-    id = json['id']?.toInt();
-    hotelId = json['hotel_id']?.toInt();
-    hotelName = json['hotel_name']?.toString();
-    questionGroups = json['question_groups']?.toString();
-    name = json['name']?.toString();
-    description = json['description']?.toString();
-    status = json['status']?.toString();
-    notifyType = json['notify_type']?.toString();
-    sendingResultType = json['sending_result_type']?.toString();
-    emails = json['emails']?.toString();
-    positiveRedirectUrls = json['positive_redirect_urls']?.toString();
-    thanksMessageForPositiveReviews =
-        json['thanks_message_for_positive_reviews']?.toString();
-    thanksMessageForNegativeReviews =
-        json['thanks_message_for_negative_reviews']?.toString();
-    askNoteAfterSurvey = json['ask_note_after_survey'];
-    createdAt = json['created_at']?.toString();
-    updatedAt = json['updated_at']?.toString();
-    surveyLines = json['survey_lines']?.toString();
-    departmentId = json['department_id']?.toInt();
-    groups = json['groups']?.toString();
-  }
 }
