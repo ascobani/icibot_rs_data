@@ -1,6 +1,8 @@
-import 'package:icibot_rs_data/icibot_rs_data.dart';
+import 'package:icibot_rs_data/src/service/rich_data_service.dart';
 
 void main() {
-  var awesome = Awesome();
-  print('awesome: ${awesome.isAwesome}');
+  var richDataService = RichDataService();
+  richDataService.get(
+    type: RichDataType.mobileVersion,
+  );
 }
