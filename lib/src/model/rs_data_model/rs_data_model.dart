@@ -189,12 +189,12 @@ class RSDataModel {
   @HiveField(88)
   String? negativeSurveyAlertList;
   @HiveField(89)
-  List<String?>?
+  List<dynamic>?
       titleAndDescriptions; //TODO: change to List<TitleAndDescriptionModel>?
   @HiveField(90)
-  List<String?>? faq; //TODO: change to List<FaqModel>?
+  List<dynamic>? faq; //TODO: change to List<FaqModel>?
   @HiveField(91)
-  List<String?>? featured; //TODO: change to List<FeaturedModel>?
+  List<dynamic>? featured; //TODO: change to List<FeaturedModel>?
   @HiveField(92)
   String? email;
   @HiveField(93)
@@ -571,14 +571,16 @@ class RSDataModel {
     productType = json['product_type'];
     autoSendWelcomeMail = json['auto_send_welcome_mail'];
     homePageDesigner = json['home_page_designer']
-        .map((json) => RsDataHomePageDesignerModel.fromJson(json))
+        .map<RsDataHomePageDesignerModel>(
+            (v) => RsDataHomePageDesignerModel.fromJson(v))
         .toList();
     firstLevelAlertList = json['first_level_alert_list'];
     secondLevelAlertList = json['second_level_alert_list'];
     thirdLevelAlertList = json['third_level_alert_list'];
     fourthLevelAlertList = json['fourth_level_alert_list'];
     negativeSurveyAlertList = json['negative_survey_alert_list'];
-    titleAndDescriptions = json['title_and_descriptions'];
+    titleAndDescriptions =
+        json['title_and_descriptions'].map((v) => v.toString()).toList();
     faq = json['faq_title'];
     featured = json['featured'];
     email = json['email'];
