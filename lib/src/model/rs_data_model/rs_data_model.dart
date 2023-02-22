@@ -20,7 +20,7 @@ part 'rs_data_menu_item_title_and_descriptions_model.dart';
 
 part 'rs_data_model.g.dart';
 
-@HiveType(typeId: 0)
+@HiveType(typeId: 1)
 class RSDataModel {
   @HiveField(0)
   int? id;
