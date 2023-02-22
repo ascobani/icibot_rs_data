@@ -1,12 +1,20 @@
+import 'dart:convert';
+
 import 'package:hive/hive.dart';
 
-part 'rs_data_bars_model.dart';
-
-part 're_data_menu_items_model.dart';
+part 'rs_data_menu_items_model.dart';
 
 part 'rs_data_home_page_designer_model.dart';
 
 part 'rs_data_survey_header_model.dart';
+
+part 'rs_data_menu_categories_model.dart';
+
+part 'rs_data_survey_model.dart';
+
+part 'rs_data_title_language_model.dart';
+
+part 'rs_data_menu_section_model.dart';
 
 @HiveType(typeId: 0)
 class RSDataModel {
@@ -325,14 +333,104 @@ class RSDataModel {
   int? checkOutSurveyId;
   @HiveField(156)
   bool? autoCreateProfile;
+  @HiveField(157)
+  RsDataMenuSectionModel? bars;
+  @HiveField(158)
+  RsDataMenuSectionModel? cafes;
+  @HiveField(159)
+  RsDataMenuSectionModel? golfClub;
+  @HiveField(160)
+  RsDataMenuSectionModel? kidsClub;
+  @HiveField(161)
+  RsDataMenuSectionModel? rooms;
+  @HiveField(162)
+  RsDataMenuSectionModel? massage;
+  @HiveField(163)
+  RsDataMenuSectionModel? meetingRoom;
+  @HiveField(164)
+  RsDataMenuSectionModel? otherFacilities;
+  @HiveField(165)
+  RsDataMenuSectionModel? pools;
+  @HiveField(166)
+  RsDataMenuSectionModel? restaurants;
+  @HiveField(167)
+  RsDataMenuSectionModel? spa;
+  @HiveField(168)
+  RsDataMenuSectionModel? sport;
+  @HiveField(169)
+  RsDataMenuSectionModel? amenities;
+  @HiveField(170)
+  RsDataMenuSectionModel? housekeeping;
+  @HiveField(171)
+  RsDataMenuSectionModel? issues;
+  @HiveField(172)
+  RsDataMenuSectionModel? complaint;
+  @HiveField(173)
+  RsDataMenuSectionModel? otherServices;
+  @HiveField(174)
+  RsDataMenuSectionModel? roomServices;
+  @HiveField(175)
+  RsDataMenuSectionModel? activity;
+  @HiveField(176)
+  RsDataMenuSectionModel? dailyAnimations;
+  @HiveField(177)
+  RsDataMenuSectionModel? shows;
+  @HiveField(178)
+  RsDataMenuSectionModel? poIs;
+  @HiveField(179)
+  RsDataMenuSectionModel? tours;
+  @HiveField(180)
+  RsDataMenuSectionModel? opportunities;
+  @HiveField(181)
+  RsDataMenuSectionModel? news;
+  @HiveField(182)
+  RsDataMenuSectionModel? banner;
+  @HiveField(183)
+  RsDataMenuSectionModel? loyalityManagement;
+  @HiveField(184)
+  RsDataMenuSectionModel? roomGuide;
+  @HiveField(185)
+  RsDataMenuSectionModel? malls;
+  @HiveField(186)
+  RsDataMenuSectionModel? upsell;
+  @HiveField(187)
+  RsDataMenuSectionModel? frontOffice;
 
   RSDataModel({
     this.mobileVersion,
+    this.upsell,
+    this.malls,
+    this.frontOffice,
+    this.roomGuide,
+    this.loyalityManagement,
+    this.banner,
+    this.tours,
+    this.news,
+    this.shows,
+    this.poIs,
+    this.dailyAnimations,
+    this.roomServices,
+    this.otherServices,
+    this.complaint,
+    this.housekeeping,
+    this.issues,
+    this.spa,
+    this.restaurants,
+    this.amenities,
+    this.pools,
+    this.sport,
+    this.meetingRoom,
+    this.bars,
     this.id,
+    this.massage,
     this.description,
     this.name,
     this.languages,
     this.imageUrl,
+    this.rooms,
+    this.kidsClub,
+    this.opportunities,
+    this.golfClub,
     this.phone,
     this.entryDate,
     this.releaseDate,
@@ -343,8 +441,10 @@ class RSDataModel {
     this.callForRequests,
     this.roomNumberValidationCode,
     this.claimTrackingManager,
+    this.cafes,
     this.hotelType,
     this.mobilePayment,
+    this.activity,
     this.title,
     this.wifiName,
     this.wifiPassword,
@@ -649,5 +749,37 @@ class RSDataModel {
     checkInSurveyId = json['check_in_survey_id'];
     checkOutSurveyId = json['check_out_survey_id'];
     autoCreateProfile = json['auto_create_profile'];
+    bars = RsDataMenuSectionModel.fromJson(json['bars']);
+    cafes = RsDataMenuSectionModel.fromJson(json['cafes']);
+    golfClub = RsDataMenuSectionModel.fromJson(json['golf_club']);
+    kidsClub = RsDataMenuSectionModel.fromJson(json['kids_club']);
+    rooms = RsDataMenuSectionModel.fromJson(json['rooms']);
+    massage = RsDataMenuSectionModel.fromJson(json['massage']);
+    meetingRoom = RsDataMenuSectionModel.fromJson(json['meeting_rooms']);
+    otherFacilities = RsDataMenuSectionModel.fromJson(json['other_facilities']);
+    pools = RsDataMenuSectionModel.fromJson(json['pools']);
+    restaurants = RsDataMenuSectionModel.fromJson(json['restaurants']);
+    spa = RsDataMenuSectionModel.fromJson(json['spa']);
+    sport = RsDataMenuSectionModel.fromJson(json['sport']);
+    amenities = RsDataMenuSectionModel.fromJson(json['amenities']);
+    housekeeping = RsDataMenuSectionModel.fromJson(json['housekeeping']);
+    issues = RsDataMenuSectionModel.fromJson(json['issues']);
+    complaint = RsDataMenuSectionModel.fromJson(json['complaint']);
+    otherServices = RsDataMenuSectionModel.fromJson(json['other_services']);
+    roomServices = RsDataMenuSectionModel.fromJson(json['room_services']);
+    activity = RsDataMenuSectionModel.fromJson(json['activity']);
+    dailyAnimations = RsDataMenuSectionModel.fromJson(json['daily_animations']);
+    shows = RsDataMenuSectionModel.fromJson(json['shows']);
+    poIs = RsDataMenuSectionModel.fromJson(json['po_is']);
+    tours = RsDataMenuSectionModel.fromJson(json['tours']);
+    opportunities = RsDataMenuSectionModel.fromJson(json['opportunities']);
+    news = RsDataMenuSectionModel.fromJson(json['news']);
+    banner = RsDataMenuSectionModel.fromJson(json['banner']);
+    loyalityManagement =
+        RsDataMenuSectionModel.fromJson(json['loyality_management']);
+    roomGuide = RsDataMenuSectionModel.fromJson(json['room_guide']);
+    malls = RsDataMenuSectionModel.fromJson(json['malls']);
+    upsell = RsDataMenuSectionModel.fromJson(json['upsell']);
+    //frontOffice = RsDataMenuSectionModel.fromJson(json['front_office']); //TODO: check this
   }
 }
