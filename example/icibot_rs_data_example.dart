@@ -6,5 +6,11 @@ import 'package:icibot_rs_data/src/manager/cache_manager/person.dart';
 import 'package:icibot_rs_data/src/service/rich_data_service.dart';
 
 void main() async {
-  CacheManager().init();
+  var richDataService = RichDataService();
+  try {
+    var response = await richDataService.getRichData(3);
+    await CacheManager().init(response);
+  } catch (e) {
+    print(e);
+  }
 }

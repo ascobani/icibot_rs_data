@@ -1,4 +1,5 @@
 import 'package:hive/hive.dart';
+part 'rs_version_model.g.dart';
 
 @HiveType(typeId: 1)
 class RSVersionModel {

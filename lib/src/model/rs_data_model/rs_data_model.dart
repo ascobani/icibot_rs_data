@@ -18,6 +18,8 @@ part 'rs_data_menu_section_model.dart';
 
 part 'rs_data_menu_item_title_and_descriptions_model.dart';
 
+part 'rs_data_model.g.dart';
+
 @HiveType(typeId: 0)
 class RSDataModel {
   @HiveField(0)
