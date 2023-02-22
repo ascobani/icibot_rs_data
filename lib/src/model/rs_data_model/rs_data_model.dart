@@ -16,6 +16,8 @@ part 'rs_data_title_language_model.dart';
 
 part 'rs_data_menu_section_model.dart';
 
+part 'rs_data_menu_item_title_and_descriptions_model.dart';
+
 @HiveType(typeId: 0)
 class RSDataModel {
   @HiveField(0)
@@ -197,12 +199,12 @@ class RSDataModel {
   @HiveField(88)
   String? negativeSurveyAlertList;
   @HiveField(89)
-  List<dynamic>?
-      titleAndDescriptions; //TODO: change to List<TitleAndDescriptionModel>?
+  List<RSDataMenuItemTitleAndDescriptionModel>? titleAndDescriptions;
   @HiveField(90)
-  List<dynamic>? faq; //TODO: change to List<FaqModel>?
+  List<RSDataMenuItemTitleAndDescriptionModel>?
+      faq; //TODO: change to List<FaqModel>?
   @HiveField(91)
-  List<dynamic>? featured; //TODO: change to List<FeaturedModel>?
+  List<RSDataMenuItemsModel>? featured; //TODO: change to List<FeaturedModel>?
   @HiveField(92)
   String? email;
   @HiveField(93)
@@ -395,6 +397,42 @@ class RSDataModel {
   RsDataMenuSectionModel? upsell;
   @HiveField(187)
   RsDataMenuSectionModel? frontOffice;
+  @HiveField(188)
+  RsDataMenuSectionModel? mice;
+  @HiveField(189)
+  RsDataMenuSectionModel? wedding;
+  @HiveField(190)
+  RsDataMenuSectionModel? avm;
+  @HiveField(191)
+  RsDataMenuSectionModel? life;
+  @HiveField(192)
+  RsDataMenuSectionModel? cinema;
+  @HiveField(193)
+  RsDataMenuSectionModel? events;
+  @HiveField(194)
+  RsDataMenuSectionModel? other1;
+  @HiveField(195)
+  RsDataMenuSectionModel? other2;
+  @HiveField(196)
+  RsDataMenuSectionModel? other3;
+  @HiveField(197)
+  RsDataMenuSectionModel? other4;
+  @HiveField(198)
+  RsDataMenuSectionModel? other5;
+  @HiveField(199)
+  RsDataMenuSectionModel? other6;
+  @HiveField(200)
+  RsDataMenuSectionModel? other7;
+  @HiveField(201)
+  RsDataMenuSectionModel? other8;
+  @HiveField(202)
+  RsDataMenuSectionModel? video;
+  @HiveField(203)
+  RsDataMenuSectionModel? services;
+  @HiveField(204)
+  RsDataMenuSectionModel? giftCard;
+  @HiveField(205)
+  RsDataMenuSectionModel? guestny;
 
   RSDataModel({
     this.mobileVersion,
@@ -472,12 +510,30 @@ class RSDataModel {
     this.hotelTokenExpiredTime,
     this.tokenExpireSeconds,
     this.manuelRequestOwnerType,
+    this.mice,
     this.onetimeInformation,
     this.isAccountVerifyNecessaryForRequest,
     this.isClosedStaffChat,
     this.operationSystem,
+    this.wedding,
     this.loyaltyManagement,
     this.staffTracking,
+    this.cinema,
+    this.guestny,
+    this.giftCard,
+    this.avm,
+    this.events,
+    this.other1,
+    this.other2,
+    this.other3,
+    this.other4,
+    this.other5,
+    this.other6,
+    this.other7,
+    this.other8,
+    this.video,
+    this.services,
+    this.life,
     this.qrReader,
     this.isTaskSolutionNoteMandatory,
     this.isTaskDescriptionMandatory,
@@ -679,10 +735,17 @@ class RSDataModel {
     thirdLevelAlertList = json['third_level_alert_list'];
     fourthLevelAlertList = json['fourth_level_alert_list'];
     negativeSurveyAlertList = json['negative_survey_alert_list'];
-    titleAndDescriptions =
-        json['title_and_descriptions'].map((v) => v.toString()).toList();
-    faq = json['faq_title'];
-    featured = json['featured'];
+    titleAndDescriptions = json['title_and_descriptions']
+        .map<RSDataMenuItemTitleAndDescriptionModel>(
+            (v) => RSDataMenuItemTitleAndDescriptionModel.fromJson(v))
+        .toList();
+    faq = json['faq']
+        .map<RSDataMenuItemTitleAndDescriptionModel>(
+            (v) => RSDataMenuItemTitleAndDescriptionModel.fromJson(v))
+        .toList();
+    featured = json['featured'].map<RSDataMenuItemsModel>((v) {
+      return RSDataMenuItemsModel.fromJson(v);
+    }).toList();
     email = json['email'];
     password = json['password'];
     phone = json['phone'];
@@ -780,6 +843,25 @@ class RSDataModel {
     roomGuide = RsDataMenuSectionModel.fromJson(json['room_guide']);
     malls = RsDataMenuSectionModel.fromJson(json['malls']);
     upsell = RsDataMenuSectionModel.fromJson(json['upsell']);
-    //frontOffice = RsDataMenuSectionModel.fromJson(json['front_office']); //TODO: check this
+    frontOffice = RsDataMenuSectionModel.fromJson(
+        json['front_office']); //TODO: check this
+    mice = RsDataMenuSectionModel.fromJson(json['mice']);
+    wedding = RsDataMenuSectionModel.fromJson(json['wedding']);
+    avm = RsDataMenuSectionModel.fromJson(json['avm']);
+    life = RsDataMenuSectionModel.fromJson(json['life']);
+    cinema = RsDataMenuSectionModel.fromJson(json['cinema']);
+    events = RsDataMenuSectionModel.fromJson(json['events']);
+    other1 = RsDataMenuSectionModel.fromJson(json['other_1']);
+    other2 = RsDataMenuSectionModel.fromJson(json['other_2']);
+    other3 = RsDataMenuSectionModel.fromJson(json['other_3']);
+    other4 = RsDataMenuSectionModel.fromJson(json['other_4']);
+    other5 = RsDataMenuSectionModel.fromJson(json['other_5']);
+    other6 = RsDataMenuSectionModel.fromJson(json['other_6']);
+    other7 = RsDataMenuSectionModel.fromJson(json['other_7']);
+    other8 = RsDataMenuSectionModel.fromJson(json['other_8']);
+    video = RsDataMenuSectionModel.fromJson(json['video']);
+    services = RsDataMenuSectionModel.fromJson(json['services']);
+    giftCard = RsDataMenuSectionModel.fromJson(json['gift_card']);
+    guestny = RsDataMenuSectionModel.fromJson(json['guestny']);
   }
 }

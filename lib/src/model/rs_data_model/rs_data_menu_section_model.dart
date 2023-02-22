@@ -35,12 +35,14 @@ class RsDataMenuSectionModel {
     menuAreaId = json?['menuAreaId'];
     catalogueActive = json?['catalogueActive'];
     timetableAndReservationActive = json?['timetableAndReservationActive'];
-    if (json?['title'] != '') {
+    if (json?['title'].contains(':') && json?['title'] != '') {
       title = jsonDecode(json?['title'])
           .entries
           .map<RSDataTitleLanguageModel>(
               (e) => RSDataTitleLanguageModel.fromJson(e))
           .toList();
+    } else {
+      title = [RSDataTitleLanguageModel(title: json?['title'], locale: 'default')];
     }
     theShow = json?['theShow'];
     surveyHeaderId = json?['surveyHeaderId'];
