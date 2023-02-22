@@ -4,18 +4,20 @@ import 'package:hive/hive.dart';
 import 'package:icibot_rs_data/src/manager/cache_manager/person.dart';
 
 class CacheManager {
-  late Box box;
-  var path = Directory.current.path;
   Future<void> init() async {
+    var path = Directory.current.path;
     Hive
       ..init(path)
       ..registerAdapter(PersonAdapter());
-    box = await Hive.openBox("box");
-  }
+    var box = await Hive.openBox('testBox');
+    var person = Person(
+      name: 'Furkan',
+      age: 22,
+    );
 
-  Future<void> getData() async {
-    await box.put("person", Person(name: "Furkan", age: 23));
-    Person person = await box.get("person");
-    print(person.name);
+    await box.put('person', person);
+
+    Person personInfo = box.get("person");
+    print(personInfo.name);
   }
 }
