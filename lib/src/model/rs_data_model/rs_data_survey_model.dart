@@ -1,7 +1,7 @@
 part of 'rs_data_model.dart';
 
 class RSDataSurveyModel {
-  int? id;
+  int? icibotId;
   int? hotelId;
   String? hotelName;
   dynamic questionGroups;
@@ -22,7 +22,7 @@ class RSDataSurveyModel {
   dynamic groups;
 
   RSDataSurveyModel(
-      {this.id,
+      {this.icibotId,
       this.hotelId,
       this.hotelName,
       this.questionGroups,
@@ -43,7 +43,7 @@ class RSDataSurveyModel {
       this.groups});
 
   RSDataSurveyModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    icibotId = json['id'];
     hotelId = json['hotel_id'];
     hotelName = json['hotel_name'];
     questionGroups = json['question_groups'];

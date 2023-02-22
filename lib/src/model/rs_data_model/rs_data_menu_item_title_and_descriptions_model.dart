@@ -1,7 +1,7 @@
 part of 'rs_data_model.dart';
 
 class RSDataMenuItemTitleAndDescriptionModel {
-  int? id;
+  int? icibotId;
   int? menuItemId;
   String? title;
   String? description;
@@ -18,7 +18,7 @@ class RSDataMenuItemTitleAndDescriptionModel {
   int? taskTypeId;
 
   RSDataMenuItemTitleAndDescriptionModel(
-      {this.id,
+      {this.icibotId,
       this.menuItemId,
       this.title,
       this.description,
@@ -35,7 +35,7 @@ class RSDataMenuItemTitleAndDescriptionModel {
       this.taskTypeId});
 
   RSDataMenuItemTitleAndDescriptionModel.fromJson(Map<String, dynamic>? json) {
-    id = json?['id'];
+    icibotId = json?['id'];
     menuItemId = json?['menu_item_id'];
     title = json?['title'];
     description = json?['description'];

@@ -1,7 +1,7 @@
 part of 'rs_data_model.dart';
 
 class RSDataMenuItemsModel {
-  int? id;
+  int? icibotId;
   int? menuSectionId;
   List<RSDataTitleLanguageModel>? menuSectionName;
   int? menuCategoryId;
@@ -100,7 +100,7 @@ class RSDataMenuItemsModel {
   RSDataSurveyHeaderModel? surveyHeader;
 
   RSDataMenuItemsModel({
-    this.id,
+    this.icibotId,
     this.menuSectionId,
     this.menuSectionName,
     this.menuCategoryId,
@@ -200,7 +200,7 @@ class RSDataMenuItemsModel {
   });
 
   RSDataMenuItemsModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    icibotId = json['id'];
     menuSectionId = json['menu_section_id'];
     if (json['menu_section_name'] != '') {
       menuSectionName = jsonDecode(json['menu_section_name'])

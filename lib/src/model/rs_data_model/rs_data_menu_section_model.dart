@@ -1,7 +1,7 @@
 part of 'rs_data_model.dart';
 
 class RsDataMenuSectionModel {
-  int? id;
+  int? icibotId;
   int? hotelId;
   int? menuAreaId;
   bool? catalogueActive;
@@ -15,7 +15,7 @@ class RsDataMenuSectionModel {
   RSDataSurveyModel? survey;
 
   RsDataMenuSectionModel({
-    this.id,
+    this.icibotId,
     this.hotelId,
     this.menuAreaId,
     this.catalogueActive,
@@ -30,7 +30,7 @@ class RsDataMenuSectionModel {
   });
 
   RsDataMenuSectionModel.fromJson(Map<String, dynamic>? json) {
-    id = json?['id'];
+    icibotId = json?['id'];
     hotelId = json?['hotelId'];
     menuAreaId = json?['menuAreaId'];
     catalogueActive = json?['catalogueActive'];

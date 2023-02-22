@@ -1,4 +1,7 @@
+import 'package:isar/isar.dart';
+
 import 'dart:convert';
+
 
 part 'rs_data_menu_items_model.dart';
 
@@ -17,7 +20,8 @@ part 'rs_data_menu_section_model.dart';
 part 'rs_data_menu_item_title_and_descriptions_model.dart';
 
 class RSDataModel {
-  int? id;
+
+  int? icibotId;
   int? clientId;
   int? facebookId;
   String? name;
@@ -249,7 +253,7 @@ class RSDataModel {
     this.sport,
     this.meetingRoom,
     this.bars,
-    this.id,
+    this.icibotId,
     this.massage,
     this.description,
     this.name,
@@ -433,7 +437,7 @@ class RSDataModel {
   });
 
   RSDataModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    icibotId = json['id'];
     clientId = json['client_id'];
     facebookId = json['facebook_id'];
     name = json['name'];

@@ -1,7 +1,7 @@
 part of 'rs_data_model.dart';
 
 class RsDataHomePageDesignerModel {
-  int? id;
+  int? icibotId;
   int? hotelId;
   String? type;
   int? priority;
@@ -14,7 +14,7 @@ class RsDataHomePageDesignerModel {
   String? updatedAt;
 
   RsDataHomePageDesignerModel({
-    this.id,
+    this.icibotId,
     this.hotelId,
     this.type,
     this.priority,
@@ -28,7 +28,7 @@ class RsDataHomePageDesignerModel {
   });
 
   RsDataHomePageDesignerModel.fromJson(Map<String, dynamic>? json) {
-    id = json?['id']?.toInt();
+    icibotId = json?['id']?.toInt();
     hotelId = json?['hotel_id']?.toInt();
     type = json?['type']?.toString();
     priority = json?['priority']?.toInt();
