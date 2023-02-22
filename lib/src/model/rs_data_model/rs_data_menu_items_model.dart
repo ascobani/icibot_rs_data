@@ -8,7 +8,7 @@ class RSDataMenuItemsModel {
   List<RSDataTitleLanguageModel>? menuCategoryName;
   int? hotelId;
   List<RSDataTitleLanguageModel>? name;
-  String? description;
+  List<RSDataTitleLanguageModel>? description;
   String? imageUrl;
   String? email;
   String? phone;
@@ -202,7 +202,6 @@ class RSDataMenuItemsModel {
   RSDataMenuItemsModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     menuSectionId = json['menu_section_id'];
-    menuSectionName = json['menu_section_name'];
     if (json['menu_section_name'] != '') {
       menuSectionName = jsonDecode(json['menu_section_name'])
           .entries
