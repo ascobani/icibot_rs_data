@@ -1,25 +1,45 @@
-import 'dart:convert';
+part of 'icibot_rs_data_service.dart';
 
-import 'package:icibot_rs_data/src/manager/dio_manager/dio_manager.dart';
-import 'package:icibot_rs_data/src/model/rs_data_model/rs_data_model.dart';
-import 'package:icibot_rs_data/src/model/rs_version_model/rs_version_model.dart';
+/// status of the [RichDataService]
+enum RichDataServiceStatus { success, error }
 
+/// [RichDataService] is a service class that is used to get data from the server.
 class RichDataService with DioManager {
-  Future<RSDataModel> getRichData(int id) async {
-    final response =
-        await dio.get('/$id/RichData.gz?$timeStamp').catchError((e) {
-      print(e);
+
+
+  /// Initializes the [RichDataService]
+  Future<void> init() async {
+    await dio.get('/3/MobileVersion.json?$timeStamp').catchError((e) {
+      print('init: ${RichDataServiceStatus.error}');
       throw e;
     });
+    print('init: ${RichDataServiceStatus.success}');
+  }
+
+  /// Gets the [RSDataModel] from the server
+  ///
+  /// @id - [AppHotelID] can be found in the {https://icibot.net/v2/api/me} by providing the token in the header
+  Future<RSDataModel> getRichData({required int appHotelId}) async {
+    final response =
+        await dio.get('/$appHotelId/RichData.gz?$timeStamp').catchError((e) {
+      print('getRichData: ${RichDataServiceStatus.error}');
+      throw e;
+    });
+    print('getRichData: ${RichDataServiceStatus.success}');
     return RSDataModel.fromJson(jsonDecode(response.data));
   }
 
-  Future<RSVersionModel> getVersion(int id) async {
-    final response =
-        await dio.get('/$id/MobileVersion.json?$timeStamp').catchError((e) {
-      print(e);
+  /// Gets the [RSVersionModel] from the server
+  ///
+  /// @id - [AppHotelID] can be found in the {https://icibot.net/v2/api/me} by providing the token in the header
+  Future<RSVersionModel> getVersion({required int appHotelId}) async {
+    final response = await dio
+        .get('/$appHotelId/MobileVersion.json?$timeStamp')
+        .catchError((e) {
+      print('getVersion: ${RichDataServiceStatus.error}');
       throw e;
     });
-    return RSVersionModel.fromJson(jsonDecode(response.data));
+    print('getVersion: ${RichDataServiceStatus.success}');
+    return RSVersionModel.fromJson(response.data);
   }
 }

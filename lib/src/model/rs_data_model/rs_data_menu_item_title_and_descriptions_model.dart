@@ -1,5 +1,6 @@
 part of 'rs_data_model.dart';
 
+@embedded
 class RSDataMenuItemTitleAndDescriptionModel {
   int? icibotId;
   int? menuItemId;
@@ -50,5 +51,25 @@ class RSDataMenuItemTitleAndDescriptionModel {
     restrictionType = json?['restriction_type'];
     restrictionValue = json?['restriction_value'];
     taskTypeId = json?['task_type_id'];
+  }
+
+  toJson() {
+    return {
+      'id': icibotId,
+      'menu_item_id': menuItemId,
+      'title': title,
+      'description': description,
+      'select_values': selectValues,
+      'reason_values': reasonValues,
+      'closing_values': closingValues,
+      'date_required': dateRequired,
+      'image_url': imageUrl,
+      'image_name': imageName,
+      'hotel_id': hotelId,
+      'response_time': responseTime,
+      'restriction_type': restrictionType,
+      'restriction_value': restrictionValue,
+      'task_type_id': taskTypeId,
+    };
   }
 }

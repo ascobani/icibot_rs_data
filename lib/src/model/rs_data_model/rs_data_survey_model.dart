@@ -1,25 +1,26 @@
 part of 'rs_data_model.dart';
 
+@embedded
 class RSDataSurveyModel {
   int? icibotId;
   int? hotelId;
   String? hotelName;
-  dynamic questionGroups;
+  String? questionGroups;
   String? name;
   String? description;
   String? status;
   String? notifyType;
   String? sendingResultType;
   String? emails;
-  dynamic positiveRedirectUrls;
+  String? positiveRedirectUrls;
   String? thanksMessageForPositiveReviews;
   String? thanksMessageForNegativeReviews;
   bool? askNoteAfterSurvey;
-  String? createdAt;
-  String? updatedAt;
-  dynamic surveyLines;
+  DateTime? createdAt;
+  DateTime? updatedAt;
+  String? surveyLines;
   int? departmentId;
-  dynamic groups;
+  String? groups;
 
   RSDataSurveyModel(
       {this.icibotId,
@@ -59,8 +60,8 @@ class RSDataSurveyModel {
     thanksMessageForNegativeReviews =
         json['thanks_message_for_negative_reviews'];
     askNoteAfterSurvey = json['ask_note_after_survey'];
-    createdAt = json['created_at'];
-    updatedAt = json['updated_at'];
+    createdAt = DateTime.parse(json['created_at']);
+    updatedAt = DateTime.parse(json['updated_at']);
     surveyLines = json['survey_lines'];
     departmentId = json['department_id'];
     groups = json['groups'];

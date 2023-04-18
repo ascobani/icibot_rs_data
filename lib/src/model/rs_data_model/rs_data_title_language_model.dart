@@ -1,5 +1,6 @@
 part of 'rs_data_model.dart';
 
+@embedded
 class RSDataTitleLanguageModel {
   String? locale;
   String? title;
@@ -12,5 +13,21 @@ class RSDataTitleLanguageModel {
   RSDataTitleLanguageModel.fromJson(MapEntry<String, dynamic> json) {
     locale = json.key;
     title = json.value;
+  }
+
+  toJson() {
+    return {
+      locale: title,
+    };
+  }
+}
+
+extension ShowSelectedLocale on List<RSDataTitleLanguageModel> {
+  /// Returns the selected locale title
+  ///
+  /// If the selected locale is not found, the first locale title is returned
+  String? getSelectedLocale(String locale) {
+    return firstWhere((element) => element.locale == locale,
+        orElse: () => this[0]).title;
   }
 }

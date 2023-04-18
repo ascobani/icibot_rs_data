@@ -1,5 +1,6 @@
 part of 'rs_data_model.dart';
 
+@embedded
 class RSDataMenuItemsModel {
   int? icibotId;
   int? menuSectionId;
@@ -98,6 +99,8 @@ class RSDataMenuItemsModel {
   String? referenceCode;
   int? surveyHeaderId;
   RSDataSurveyHeaderModel? surveyHeader;
+  List<RSDataMenuItemCatalogGroupsModel>? menuItemCatalogGroups;
+  List<RSDataMenuItemBulletListModel>? bulletList;
 
   RSDataMenuItemsModel({
     this.icibotId,
@@ -105,6 +108,7 @@ class RSDataMenuItemsModel {
     this.menuSectionName,
     this.menuCategoryId,
     this.menuCategoryName,
+    this.bulletList,
     this.hotelId,
     this.name,
     this.description,
@@ -116,6 +120,7 @@ class RSDataMenuItemsModel {
     this.webSiteUrl,
     this.virtualTourUrl,
     this.dressCode,
+    this.menuItemCatalogGroups,
     this.locationDescription,
     this.activateMapLocation,
     this.mapLocation,
@@ -202,36 +207,12 @@ class RSDataMenuItemsModel {
   RSDataMenuItemsModel.fromJson(Map<String, dynamic> json) {
     icibotId = json['id'];
     menuSectionId = json['menu_section_id'];
-    if (json['menu_section_name'] != '') {
-      menuSectionName = jsonDecode(json['menu_section_name'])
-          .entries
-          .map<RSDataTitleLanguageModel>(
-              (e) => RSDataTitleLanguageModel.fromJson(e))
-          .toList();
-    }
+    menuSectionName = getLanguage(data: json['menu_section_name']);
     menuCategoryId = json['menu_category_id'];
-    if (json['menu_category_name'] != '') {
-      menuCategoryName = jsonDecode(json['menu_category_name'])
-          .entries
-          .map<RSDataTitleLanguageModel>(
-              (e) => RSDataTitleLanguageModel.fromJson(e))
-          .toList();
-    }
+    menuCategoryName = getLanguage(data: json['menu_category_name']);
     hotelId = json['hotel_id'];
-    if (json['name'] != '') {
-      name = jsonDecode(json['name'])
-          .entries
-          .map<RSDataTitleLanguageModel>(
-              (e) => RSDataTitleLanguageModel.fromJson(e))
-          .toList();
-    }
-    if (json['description'] != '') {
-      description = jsonDecode(json['description'])
-          .entries
-          .map<RSDataTitleLanguageModel>(
-              (e) => RSDataTitleLanguageModel.fromJson(e))
-          .toList();
-    }
+    name = getLanguage(data: json['name']);
+    description = getLanguage(data: json['description']);
     imageUrl = json['image_url'];
     email = json['email'];
     phone = json['phone'];
@@ -321,5 +302,17 @@ class RSDataMenuItemsModel {
     referenceCode = json['reference_code'];
     surveyHeaderId = json['survey_header_id'];
     surveyHeader = RSDataSurveyHeaderModel.fromJson(json['survey_header']);
+    if (json['menu_item_catalog_groups'] != null) {
+      menuItemCatalogGroups = json['menu_item_catalog_groups']
+          .map<RSDataMenuItemCatalogGroupsModel>(
+              (e) => RSDataMenuItemCatalogGroupsModel.fromJson(e))
+          .toList();
+    }
+    if (json['menu_item_bullet_lists'] != null) {
+      bulletList = json['menu_item_bullet_lists']
+          .map<RSDataMenuItemBulletListModel>(
+              (e) => RSDataMenuItemBulletListModel.fromJson(e))
+          .toList();
+    }
   }
 }

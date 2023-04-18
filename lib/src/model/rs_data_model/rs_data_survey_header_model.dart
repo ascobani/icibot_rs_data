@@ -1,8 +1,7 @@
 part of 'rs_data_model.dart';
 
-
+@embedded
 class RSDataSurveyHeaderModel {
-
   int? icibotId;
   int? hotelId;
   String? hotelName;
@@ -67,5 +66,29 @@ class RSDataSurveyHeaderModel {
     surveyLines = json?['survey_lines']?.toString();
     departmentId = json?['department_id']?.toInt();
     groups = json?['groups']?.toString();
+  }
+
+  toJson() {
+    return {
+      'id': icibotId,
+      'hotel_id': hotelId,
+      'hotel_name': hotelName,
+      'question_groups': questionGroups,
+      'name': name,
+      'description': description,
+      'status': status,
+      'notify_type': notifyType,
+      'sending_result_type': sendingResultType,
+      'emails': emails,
+      'positive_redirect_urls': positiveRedirectUrls,
+      'thanks_message_for_positive_reviews': thanksMessageForPositiveReviews,
+      'thanks_message_for_negative_reviews': thanksMessageForNegativeReviews,
+      'ask_note_after_survey': askNoteAfterSurvey,
+      'created_at': createdAt,
+      'updated_at': updatedAt,
+      'survey_lines': surveyLines,
+      'department_id': departmentId,
+      'groups': groups,
+    };
   }
 }
